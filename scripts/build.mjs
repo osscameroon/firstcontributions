@@ -1,6 +1,7 @@
 // Builds the static website into dist/.
 // Usage: node scripts/build.mjs [--offline]
 // Set GITHUB_TOKEN to raise the GitHub API rate limit when loading contribution details.
+import { DEFAULT_LOCALE, LOCALES } from '../lib/i18n.mjs';
 import { execFileSync } from 'node:child_process';
 import { copyFile, mkdir, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
@@ -48,10 +49,14 @@ await copyFile('site/style.css', path.join(OUT, 'style.css'));
 await writeFile(path.join(OUT, 'index.html'), renderIndex({ config, contributors }));
 await writeFile(path.join(OUT, '404.html'), renderNotFound({ config }));
 await writeFile(path.join(OUT, 'contributors.json'), JSON.stringify(contributors, null, 2));
-for (const contributor of contributors) {
-  const dir = path.join(OUT, 'u', contributor.github);
-  await mkdir(dir, { recursive: true });
-  await writeFile(path.join(dir, 'index.html'), renderProfile({ config, contributor }));
+for (const locale of LOCALES) {
+  const localeOut = locale === DEFAULT_LOCALE ? OUT : path.join(OUT, locale);
+  for (const contributor of contributors) {
+    const dir = path.join(localeOut, 'u', contributor.github);
+    await mkdir(dir, { recursive: true });
+    await writeFile(path.join(dir, 'index.html'), renderProfile({ config, contributor, locale }));
+  }
 }
+
 
 console.log(`Built ${contributors.length} contributor pages into ${OUT}/.`);
