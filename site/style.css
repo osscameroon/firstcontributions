@@ -147,3 +147,36 @@ h2 { font-size: 1.35rem; margin: 0; }
   .pill { width: auto; }
   .stats { gap: 24px; }
 }
+
+/* ── Language switcher ── */
+.nav-end { display: flex; align-items: center; gap: 20px; }
+
+.lang-switcher { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; }
+
+.lang-sep { color: var(--border); user-select: none; }
+
+.lang-btn {
+  background: none;
+  border: none;
+  padding: 2px 0;
+  font: inherit;
+  font-size: 0.85rem;
+  color: var(--muted);
+  cursor: pointer;
+  line-height: 1;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.lang-btn:hover { color: var(--text); }
+
+.lang-btn--active {
+  color: var(--text);
+  font-weight: 600;
+  border-bottom-color: var(--accent);
+}
+
+@media (max-width: 400px) {
+  .nav-end { gap: 12px; }
+  .lang-btn { font-size: 0.8rem; }
+}
