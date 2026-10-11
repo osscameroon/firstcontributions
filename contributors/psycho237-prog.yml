@@ -1,6 +1,10 @@
 github: psycho237-prog
 name: ONANA GREGOIRE LEGRAND
-bio: Aspiring cybersecurity 
+bio: Aspiring cybersecurity
 location: Yaoundé, Cameroon
 website: https://psycho.is-a.dev
 contributions:
+  - https://github.com/osscameroon/website/issues/514
+  - https://github.com/osscameroon/website/pull/515
+  - https://github.com/osscameroon/hacktoberfest-2026/pull/12
+  - https://github.com/osscameroon/firstcontributions/pull/23
