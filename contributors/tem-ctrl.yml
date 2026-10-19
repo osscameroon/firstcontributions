@@ -1,0 +1,11 @@
+github: tem-ctrl
+name: Gilbert Temgoua
+# The lines below are optional. Replace the example values or delete the lines.
+bio: Open source guru
+location: Bafoussam, Cameroon
+website: https://open-source-guru.dev
+contributions:
+  # Later, list issues or pull requests you worked on, one per line, like this:
+  # - https://github.com/osscameroon/js-generator/pull/1
+  - https://github.com/osscameroon/website/pull/508
+  - https://github.com/osscameroon/website/pull/511
